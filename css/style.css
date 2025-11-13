@@ -162,6 +162,34 @@ nav ul li a.active::after {
     color: var(--white);
 }
 
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-secondary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background-color: transparent;
+    color: var(--primary-color);
+}
+
+.btn-whatsapp {
+    background-color: #25D366;
+    border-color: #25D366;
+}
+
+.btn-whatsapp:hover {
+    background-color: transparent;
+    color: #25D366;
+}
+
 /* قسم من نحن */
 .about {
     padding: 80px 0;
@@ -342,6 +370,7 @@ nav ul li a.active::after {
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     height: 250px;
+    cursor: pointer;
 }
 
 .gallery-item img {
@@ -353,6 +382,35 @@ nav ul li a.active::after {
 
 .gallery-item:hover img {
     transform: scale(1.1);
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-overlay i {
+    color: var(--white);
+    font-size: 2rem;
+    transform: translateY(20px);
+    transition: var(--transition);
+}
+
+.gallery-item:hover .gallery-overlay i {
+    transform: translateY(0);
 }
 
 /* قسم الفيديوهات */
@@ -597,7 +655,13 @@ footer {
     }
 }
 
-/* تصميم متجاوب */
+/* تصميم متجاوب للأجهزة المحمولة */
+@media (max-width: 1200px) {
+    .container {
+        width: 95%;
+    }
+}
+
 @media (max-width: 992px) {
     .about-content {
         flex-direction: column;
@@ -607,6 +671,22 @@ footer {
     .about-image {
         flex: 1;
         width: 100%;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-links h4::after,
+    .footer-contact h4::after,
+    .footer-social h4::after {
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+    .footer-social .social-icons {
+        justify-content: center;
     }
 }
 
@@ -638,7 +718,7 @@ footer {
     }
 
     .hero-content h1 {
-        font-size: 3rem;
+        font-size: 2.8rem;
     }
 
     .hero-content p {
@@ -649,15 +729,192 @@ footer {
         flex-direction: column;
         align-items: center;
     }
-}
 
-@media (max-width: 576px) {
-    .hero-content h1 {
-        font-size: 2.5rem;
+    .logo img {
+        height: 50px;
+    }
+
+    .logo h2 {
+        font-size: 1.2rem;
+    }
+
+    header {
+        padding: 10px 0;
+    }
+
+    .features-grid, .destinations-grid, .gallery-grid, .videos-grid {
+        grid-template-columns: 1fr;
     }
 
     .section-title {
         font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+
+    .about, .features, .destinations, .gallery, .videos, .testimonials {
+        padding: 50px 0;
+    }
+
+    .feature-card, .destination-card, .gallery-item, .video-item {
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        padding: 10px 25px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero {
+        height: 80vh;
+        padding: 0 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .logo h2 {
+        font-size: 1rem;
+    }
+
+    .logo img {
+        height: 40px;
+    }
+
+    header {
+        padding: 8px 0;
+    }
+
+    .container {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    .about-text h2 {
+        font-size: 1.8rem;
+    }
+
+    .about-text p {
+        font-size: 1rem;
+    }
+
+    .feature-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .feature-card p {
+        font-size: 0.9rem;
+    }
+
+    .destination-info h3 {
+        font-size: 1.2rem;
+    }
+
+    .destination-info p {
+        font-size: 0.9rem;
+    }
+
+    .testimonial-card {
+        padding: 20px;
+    }
+
+    .testimonial-card p {
+        font-size: 0.9rem;
+    }
+
+    .testimonial-form input,
+    .testimonial-form textarea {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+
+    .footer-logo img {
+        height: 50px;
+    }
+
+    .footer-logo h3 {
+        font-size: 1.3rem;
+    }
+
+    .footer-logo p {
+        font-size: 0.9rem;
+    }
+
+    .footer-links h4,
+    .footer-contact h4,
+    .footer-social h4 {
+        font-size: 1.1rem;
+    }
+
+    .footer-links ul li a,
+    .footer-contact ul li {
+        font-size: 0.9rem;
+    }
+
+    .copyright p {
+        font-size: 0.8rem;
+    }
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        right: 15px;
+        bottom: 15px;
+    }
+
+    .whatsapp-float i {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .about-text h2 {
+        font-size: 1.6rem;
+    }
+
+    .feature-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    .feature-card, .testimonial-card {
+        padding: 15px;
+    }
+
+    .btn {
+        padding: 8px 20px;
+    }
+
+    .testimonial-form {
+        padding: 20px;
+    }
+
+    .footer-content {
+        gap: 30px;
     }
 }
 
@@ -685,4 +942,126 @@ footer {
 .whatsapp-float:hover{ transform: translateY(-4px); box-shadow: 0 10px 24px rgba(0,0,0,0.22); }
 @media (max-width:480px){
   .whatsapp-float{ right:14px; bottom:14px; width:54px; height:54px; }
+}
+
+/* تحسينات إضافية للأجهزة المحمولة */
+.image-modal, .video-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  text-align: center;
+}
+
+.modal-content img {
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 5px;
+}
+
+.modal-content h3 {
+  color: var(--white);
+  margin-bottom: 15px;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.close-modal {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  color: var(--white);
+  font-size: 2rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.close-modal:hover {
+  color: var(--secondary-color);
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    max-width: 95%;
+  }
+
+  .close-modal {
+    top: -30px;
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    max-width: 98%;
+  }
+
+  .close-modal {
+    top: -25px;
+    font-size: 1.2rem;
+  }
+
+  .modal-content h3 {
+    font-size: 1.2rem;
+  }
+}
+
+/* تحسينات إضافية للأزرار والنماذج */
+.btn, button[type="submit"] {
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+input, textarea, select {
+  font-size: 16px; /* منع التكبير التلقائي في iOS */
+}
+
+/* تحسينات للأداء على الأجهزة المحمولة */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/* تحسينات للتمرير السلس */
+html {
+  scroll-behavior: smooth;
+}
+
+/* تحسينات للصور */
+img {
+  max-width: 100%;
+  height: auto;
 }

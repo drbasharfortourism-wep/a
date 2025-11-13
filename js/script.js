@@ -11,17 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
             '<i class="fas fa-bars"></i>';
     });
 
-    // تغيير شكل الهيدر عند التمرير
-    window.addEventListener('scroll', function() {
-        const header = document.querySelector('header');
-        if (window.scrollY > 100) {
-            header.style.padding = '10px 0';
-            header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-        } else {
-            header.style.padding = '15px 0';
-            header.style.backgroundColor = '#fff';
-        }
-    });
+    // الشريط العلوي يظل ثابتًا دون تغيير عند التمرير
+    // تم إزالة كود تغيير شكل الهيدر عند التمرير للحفاظ على ثباته
 
     // التمرير السلس إلى الأقسام
     const links = document.querySelectorAll('a[href^="#"]');
